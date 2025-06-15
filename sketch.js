@@ -18,6 +18,41 @@ newgridbtn.addEventListener("click", () =>{
 })
 
 
+
+function draw(target){
+  
+  let initialcolor = target.style.backgroundColor;
+  let opacity = target.style.opacity;
+
+  console.log("Initial color: " + initialcolor);
+  console.log("Opacity: " + opacity);
+
+  
+  if(!initialcolor){
+
+    let r = Math.random()*255;   
+    let g = Math.random()*255;   
+    let b = Math.random()*255;  
+    
+    target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    target.style.opacity = "0.1";
+
+  }else{
+
+    target.style.backgroundColor = initialcolor;
+
+    //convert to number
+    let opnum = +opacity;
+
+    if(opnum < 1){
+      opnum +=  0.1;
+    }
+
+    target.style.opacity = opnum;
+
+  }
+}
+
 function makegrid(numofsquares){
     
   let gridcontainer = document.querySelector("#gridcontainer");
@@ -109,37 +144,7 @@ gridcontainer.addEventListener("mousedown", (event) => {
 
     if(target.id !== "gridcontainer"){
 
-
-      let initialcolor = target.style.backgroundColor;
-      let opacity = target.style.opacity;
-
-      console.log("Initial color: " + initialcolor);
-      console.log("Opacity: " + opacity);
-
-      
-      if(!initialcolor){
-
-        let r = Math.random()*255;   
-        let g = Math.random()*255;   
-        let b = Math.random()*255;  
-        
-        target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-        target.style.opacity = "0.1";
-
-      }else{
-
-        target.style.backgroundColor = initialcolor;
-
-        //convert to number
-        let opnum = +opacity;
-
-        if(opnum < 1){
-          opnum +=  0.1;
-        }
-
-        target.style.opacity = opnum;
-
-      }
+      draw(target);
     }
 
 })
@@ -155,36 +160,7 @@ gridcontainer.addEventListener("mouseover", (event) => {
 
     if(target.id !== "gridcontainer"){
 
-      let initialcolor = target.style.backgroundColor;
-      let opacity = target.style.opacity;
-
-      console.log("Initial color: " + initialcolor);
-      console.log("Opacity: " + opacity);
-
-      
-      if(!initialcolor){
-
-        let r = Math.random()*255;   
-        let g = Math.random()*255;   
-        let b = Math.random()*255;  
-        
-        target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-        target.style.opacity = "0.1";
-
-      }else{
-
-        target.style.backgroundColor = initialcolor;
-
-        //convert to number
-        let opnum = +opacity;
-
-        if(opnum < 1){
-          opnum +=  0.1;
-        }
-
-        target.style.opacity = opnum;
-
-      }
+      draw(target);
  
     }
     
