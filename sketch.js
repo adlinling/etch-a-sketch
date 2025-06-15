@@ -106,9 +106,14 @@ document.addEventListener('mouseup', () => {
 gridcontainer.addEventListener("mousedown", (event) => {
 
     let target = event.target;
-    
+
     if(target.id !== "gridcontainer"){
-      target.style.backgroundColor = linecolor;
+
+      let r = Math.random()*255;   
+      let g = Math.random()*255;   
+      let b = Math.random()*255;  
+
+      target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     }
 
 })
@@ -123,7 +128,12 @@ gridcontainer.addEventListener("mouseover", (event) => {
   if(isMouseDown){
 
     if(target.id !== "gridcontainer"){
-      target.style.backgroundColor = linecolor;
+      
+      let r = Math.random()*255;   
+      let g = Math.random()*255;   
+      let b = Math.random()*255;  
+      
+      target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     }
     
   }
