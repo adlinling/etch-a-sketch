@@ -32,16 +32,28 @@ function makegrid(numofsquares){
   let rowdivs;
 
 
-  let containerwidthpct = gridcontainer.style.width.replace("%", "");
-  let containerwidthpx = window.innerWidth*containerwidthpct/100;
+  //let containerwidthpct = gridcontainer.style.width.replace("%", "");
+  //let containerwidthpx = window.innerWidth*containerwidthpct/100;
 
+  let containerwidthpx = gridcontainer.style.width;
+
+ 
   //Since the grid is a square, the height equals the width
   let containerheight = containerwidthpx;
 
-  //Need to decrease height of each row div by 3px in order fit without spill over
-  let rowheight = (containerheight/rows) - 3;
+  console.log("Container width:" + containerwidthpx);
+  console.log("Container height:" + containerheight);
 
-  let columnwidth = (containerwidthpx/rows);
+  
+  let rowheight = containerheight.replace("px","")/rows;
+
+  console.log("Row height:" + rowheight);
+
+
+  let columnwidth = rowheight;
+
+  console.log("Column width:" + columnwidth);
+
 
   for(let i=1;i<=rows;i++){
 
@@ -63,10 +75,11 @@ function makegrid(numofsquares){
       columndiv.setAttribute("id", i + "" + j);
 
       columndiv.style.width = columnwidth + "px";
+      //columndiv.style.height = rowheight + "px";
       //columndiv.style.border = "1px pink solid";
       columndiv.style.display = "flex";
       columndiv.style.justifyContent = "center";
-      //columndiv.textContent = i;
+      //columndiv.textContent = "x";
 
       rowdivs.appendChild(columndiv);
 
