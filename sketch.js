@@ -106,7 +106,10 @@ document.addEventListener('mouseup', () => {
 gridcontainer.addEventListener("mousedown", (event) => {
 
     let target = event.target;
-    target.style.backgroundColor = linecolor;
+    
+    if(target.id !== "gridcontainer"){
+      target.style.backgroundColor = linecolor;
+    }
 
 })
 
@@ -118,7 +121,11 @@ gridcontainer.addEventListener("mouseover", (event) => {
   console.log("mousedown: " + isMouseDown);
 
   if(isMouseDown){
-    target.style.backgroundColor = linecolor;
+
+    if(target.id !== "gridcontainer"){
+      target.style.backgroundColor = linecolor;
+    }
+    
   }
 
 })
