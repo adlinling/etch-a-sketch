@@ -1,58 +1,77 @@
 
-let gridcontainer = document.querySelector("#gridcontainer");
 
-let rows = 16;
-let columns = rows;
-let rowdivs;
-
-
-let containerwidthpct = gridcontainer.style.width.replace("%", "");
-let containerwidthpx = window.innerWidth*containerwidthpct/100;
-
-//Since the grid is a square, the height equals the width
-let containerheight = containerwidthpx;
-
-//Need to decrease height of each row div by 3px in order fit without spill over
-let rowheight = (containerheight/rows) - 3;
-
-let columnwidth = (containerwidthpx/rows);
 
 let isMouseDown = false;
 
+let btn = document.querySelector("#reset");
 
-for(let i=1;i<=rows;i++){
+btn.addEventListener("click", () =>{
+    console.log("Make new grid");
+})
 
-  console.log(`row ${i}`)
 
-  rowdivs = document.createElement('div');
-  rowdivs.setAttribute("class", "row");
-  rowdivs.style.display = "flex";
-  rowdivs.style.height = rowheight + "px";
-  
-  rowdivs.style.justifyContent = "center";
-  //rowdiv.style.backgroundColor = "yellow";
-  //rowdiv.textContent = i;
+function makegrid(numofsquares){
+    
+  let gridcontainer = document.querySelector("#gridcontainer");
 
-  for(let j=1;j<=columns;j++){
+  let rows = numofsquares;
 
-    columndiv = document.createElement('div');
-    columndiv.setAttribute("class", "cell");
-    columndiv.setAttribute("id", i + "" + j);
+  if(rows > 100){
+      rows = 100;
+  }
 
-    columndiv.style.width = columnwidth + "px";
-    //columndiv.style.border = "1px pink solid";
-    columndiv.style.display = "flex";
-    columndiv.style.justifyContent = "center";
-    columndiv.textContent = i;
+  let columns = rows;
+  let rowdivs;
 
-    rowdivs.appendChild(columndiv);
+
+  let containerwidthpct = gridcontainer.style.width.replace("%", "");
+  let containerwidthpx = window.innerWidth*containerwidthpct/100;
+
+  //Since the grid is a square, the height equals the width
+  let containerheight = containerwidthpx;
+
+  //Need to decrease height of each row div by 3px in order fit without spill over
+  let rowheight = (containerheight/rows) - 3;
+
+  let columnwidth = (containerwidthpx/rows);
+
+  for(let i=1;i<=rows;i++){
+
+    console.log(`row ${i}`)
+
+    rowdivs = document.createElement('div');
+    rowdivs.setAttribute("class", "row");
+    rowdivs.style.display = "flex";
+    rowdivs.style.height = rowheight + "px";
+    
+    rowdivs.style.justifyContent = "center";
+    //rowdiv.style.backgroundColor = "yellow";
+    //rowdiv.textContent = i;
+
+    for(let j=1;j<=columns;j++){
+
+      columndiv = document.createElement('div');
+      columndiv.setAttribute("class", "cell");
+      columndiv.setAttribute("id", i + "" + j);
+
+      columndiv.style.width = columnwidth + "px";
+      //columndiv.style.border = "1px pink solid";
+      columndiv.style.display = "flex";
+      columndiv.style.justifyContent = "center";
+      columndiv.textContent = i;
+
+      rowdivs.appendChild(columndiv);
+
+    }
+
+    gridcontainer.appendChild(rowdivs);
 
   }
 
-  gridcontainer.appendChild(rowdivs);
-
 }
 
+
+makegrid(16);
 
 document.addEventListener('mousedown', () => {
   isMouseDown = true;
@@ -82,4 +101,7 @@ gridcontainer.addEventListener("mouseover", (event) => {
   }
 
 })
+
+
+
 
