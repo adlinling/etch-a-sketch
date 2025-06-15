@@ -17,8 +17,6 @@
 
 }
 
-
-
 .row{
     display:flex;
     border-right:0px rgb(0, 0, 0) solid;
@@ -37,3 +35,10 @@
 .cell:hover{
     background-color:pink;
 }
+
+
+@keyframes colorChange {
+    0% { background-color: red; }  /* Start with red */
+    50% { background-color: blue; } /* Halfway through, change to blue */
+    100% { background-color: red; } /* End with red (loops back) */
+  }

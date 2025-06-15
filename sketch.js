@@ -1,10 +1,43 @@
 
 
 let linecolor = "black";
+let darkening = "off";
 
 let isMouseDown = false;
 
 let newgridbtn = document.querySelector("#reset");
+
+let colorselection = document.querySelector("#colorselection");
+
+let darkeningswitch = document.querySelector("#darkeningonoff");
+
+
+
+darkeningswitch.addEventListener("click",()=>{
+
+    console.log("Progressive Darkening Button pressed");
+
+    if(darkening == "off"){
+      darkening = "on";
+      darkeningswitch.textContent = "On";
+    }else{
+      darkening = "off";
+      darkeningswitch.textContent = "Off";
+    }
+    
+    console.log("Progressive Darkening is switched " + darkening);
+})
+
+
+colorselection.addEventListener("click",(event)=>{
+  
+  let target = event.target;
+
+  console.log("Color Selected: " + target.id);
+  linecolor = target.id;
+
+});
+
 
 newgridbtn.addEventListener("click", () =>{
     console.log("Make new grid");
@@ -30,16 +63,30 @@ function draw(target){
   
   if(!initialcolor){
 
-    let r = Math.random()*255;   
-    let g = Math.random()*255;   
-    let b = Math.random()*255;  
+    if(linecolor == "random"){
+
+      let r = Math.random()*255;   
+      let g = Math.random()*255;   
+      let b = Math.random()*255;  
+
+      target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+    }else{
+
+      target.style.backgroundColor = linecolor;
+    }
+ 
+    if(darkening == "on"){
+      target.style.opacity = "0.1";
+    }else{
+      target.style.opacity = "1";
+    }
     
-    target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    target.style.opacity = "0.1";
 
   }else{
 
     target.style.backgroundColor = initialcolor;
+
 
     //convert to number
     let opnum = +opacity;

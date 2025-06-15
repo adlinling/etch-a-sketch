@@ -21,7 +21,30 @@
 
   <div id="gridcontainer"  style="display:flex;flex-wrap:wrap;flex-direction:column;width:800px;aspect-ratio:1/1;border:1px rgb(0, 0, 0) solid;padding:10px 0px 0px;">
   </div>
-  <button id="reset">New Grid</button>
+
+  <div id="controls" style="display:flex;gap:10px;">
+
+    <div id="colorselection" style="display:flex;gap:10px;padding:0px 20px 0px;">
+      <div id="red" style="width:30px;height:30px;background-color:red;cursor:pointer"></div>
+      <div id="green" style="width:30px;height:30px;background-color:green;cursor:pointer"></div>
+      <div id="blue" style="width:30px;height:30px;background-color:blue;cursor:pointer"></div>
+      <div id="purple" style="width:30px;height:30px;background-color:purple;cursor:pointer"></div>
+      <div id="yellow" style="width:30px;height:30px;background-color:yellow;cursor:pointer"></div>
+      <div id="brown" style="width:30px;height:30px;background-color:brown;cursor:pointer"></div>
+      <div id="black" style="width:30px;height:30px;background-color:black;cursor:pointer"></div>
+      <div id="random" style="width:30px;height:30px;cursor:pointer;animation-name: colorChange;animation-duration: 4s;animation-iteration-count: infinite;"></div>
+    </div>
+
+
+
+    <div id="darkening" style="display:flex;align-items:center;padding: 0px 20px 0px;gap:8px;">
+      Progress Darkening:
+      <button id="darkeningonoff">Off</button>
+    </div>
+    
+    <button id="reset">New Grid</button>
+  </div>
+  
 </div>
 
 
