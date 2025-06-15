@@ -1,12 +1,20 @@
 
 
+let linecolor = "black";
 
 let isMouseDown = false;
 
-let btn = document.querySelector("#reset");
+let newgridbtn = document.querySelector("#reset");
 
-btn.addEventListener("click", () =>{
+newgridbtn.addEventListener("click", () =>{
     console.log("Make new grid");
+    numofsquares = prompt("Enter number of squares per side for the new grid", 16);
+
+    let gridcontainer = document.querySelector("#gridcontainer");
+
+    gridcontainer.innerHTML = "";
+    
+    makegrid(numofsquares);
 })
 
 
@@ -58,7 +66,7 @@ function makegrid(numofsquares){
       //columndiv.style.border = "1px pink solid";
       columndiv.style.display = "flex";
       columndiv.style.justifyContent = "center";
-      columndiv.textContent = i;
+      //columndiv.textContent = i;
 
       rowdivs.appendChild(columndiv);
 
@@ -85,7 +93,7 @@ document.addEventListener('mouseup', () => {
 gridcontainer.addEventListener("mousedown", (event) => {
 
     let target = event.target;
-    target.style.backgroundColor = "green";
+    target.style.backgroundColor = linecolor;
 
 })
 
@@ -97,7 +105,7 @@ gridcontainer.addEventListener("mouseover", (event) => {
   console.log("mousedown: " + isMouseDown);
 
   if(isMouseDown){
-    target.style.backgroundColor = "green";
+    target.style.backgroundColor = linecolor;
   }
 
 })
