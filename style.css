@@ -1,0 +1,27 @@
+#gridcontainer{
+    
+    /*Prevents blue highlighting of text when mouse button is pressed*/
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+}
+
+.row{
+    display:flex;
+    border-right:1px rgb(0, 0, 0) solid;
+    border-bottom:1px rgb(0, 0, 0) solid;
+}
+
+
+.cell{
+    display:flex;
+    align-items:center;
+    border-left:1px rgb(0, 0, 0) solid;
+    border-top:1px rgb(0, 0, 0) solid;
+}
+
+.cell:hover{
+    background-color:pink;
+}
