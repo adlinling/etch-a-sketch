@@ -39,6 +39,8 @@
 
 @keyframes colorChange {
     0% { background-color: red; }  /* Start with red */
+    25% { background-color: green; } /* Halfway through, change to blue */
     50% { background-color: blue; } /* Halfway through, change to blue */
+    75% { background-color: yellow; } /* Halfway through, change to blue */
     100% { background-color: red; } /* End with red (loops back) */
   }
